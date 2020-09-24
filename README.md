@@ -1,4 +1,7 @@
-# Self-Driving-Car-Unity
+<!DOCTYPE html>
+<html>
+<body>
+<h1 align="center"> Self Driving Car Unity </h1> 
 
 Implemented Genetic Algorithm in Unity using the "Math.net Numerics" library which is a open source library for .NET and mono.
 It's almost similar to the previous implementation done in UE4, although this is entirely coded in C#.

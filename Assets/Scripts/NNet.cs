@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +7,6 @@ using MathNet.Numerics.LinearAlgebra;
 using System;
 
 using Random = UnityEngine.Random;
-using Newtonsoft.Json;
 using System.IO;
 
 public class NNet : MonoBehaviour
@@ -22,7 +22,6 @@ public class NNet : MonoBehaviour
     public List<float> biases = new List<float>();
 
     public float fitness;
-
 
 
     public void Initialise (int hiddenLayerCount, int hiddenNeuronCount)
@@ -160,31 +159,7 @@ public class NNet : MonoBehaviour
 
     // for saving the NN values in a json file
 
-    public void SaveNetwork()
-    {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        if (!System.IO.Directory.Exists(path + "\\SavedBrains"))
-        {
-            Directory.CreateDirectory(path + "\\SavedBrains");
-        }
-        path = path + "\\SavedBrains";
-        string ID = DateTime.Now.Ticks.ToString();
-        string json = JsonConvert.SerializeObject(inputLayer.ToArray());
-        File.WriteAllText(path + "\\inputLayer_" + ID + ".txt", json);
-        json = JsonConvert.SerializeObject(hiddenLayers.ToArray());
-        File.WriteAllText(path + "\\hiddenLayers_" + ID + ".txt", json);
-        json = JsonConvert.SerializeObject(outputLayer.ToArray());
-        File.WriteAllText(path + "\\outputLayers_" + ID + ".txt", json);
-        json = JsonConvert.SerializeObject(weights.ToArray());
-        File.WriteAllText(path + "\\weights_" + ID + ".txt", json);
-        json = JsonConvert.SerializeObject(biases.ToArray());
-        File.WriteAllText(path + "\\biases_" + ID + ".txt", json);
-    }
-
-
-
-
-
+    
 
 
 
